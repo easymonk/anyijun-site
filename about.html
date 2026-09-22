@@ -1,1 +1,621 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于我｜安逸君</title><meta name="description" content="了解安逸君：前端开发出身，把 AI、全栈开发和部署能力用在真实项目里。"><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/style.css"></head><body><header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">安</span><span>逸君</span></a><nav class="desktop-nav"><a href="index.html">首页</a><a href="services.html">服务与价格</a><a href="#contact">联系我</a><a class="nav-cta" href="#contact">聊聊你的想法 ↗</a></nav><details class="mobile-menu"><summary>☰</summary><nav><a href="index.html">首页</a><a href="services.html">服务与价格</a><a href="#contact">联系我</a></nav></details></div></header><main><section class="page-hero"><div class="container"><p class="eyebrow">ABOUT / 关于我</p><h1>我更在意<br><em>事情有没有发生。</em></h1><p class="hero-lede">我是安逸君。前端开发出身，现在用 AI × 全栈 × 部署，把一个想法从模糊的念头，变成真正能被使用的产品。</p></div></section><section class="section"><div class="container content-narrow"><div class="copy-grid"><article class="info-card"><h3>我的工作方式</h3><p>先判断问题，再决定要不要做；先拆出最小可用版本，再逐步迭代。复杂问题说人话，预算有限也可以一起找到合适路径。</p></article><article class="info-card"><h3>我能帮你什么</h3><p>从个人品牌网站、企业官网和落地页，到 AI 工具、内部工作台、域名配置、部署上线和后续维护。</p></article></div><div style="height:56px"></div><div class="principle-grid"><article class="principle"><span>01</span><div><h3>懂技术</h3><p>能把页面、程序、部署和服务器问题放在同一个完整方案里解决。</p></div></article><article class="principle"><span>02</span><div><h3>懂 AI</h3><p>把 ChatGPT、Codex、Claude 等工具用在真实的设计、开发和内容生产环节。</p></div></article><article class="principle"><span>03</span><div><h3>讲人话</h3><p>你不需要先学会 React、API 或 Docker，只需要说清楚想解决什么。</p></div></article><article class="principle"><span>04</span><div><h3>重结果</h3><p>不止交付一个页面，更关注它能不能上线、被使用、持续运行。</p></div></article></div></div></section><section class="section section-tint" id="contact"><div class="container contact-card"><div><p class="eyebrow">LET’S MAKE IT REAL / 联系我</p><h2>有想法，不确定怎么做？<br><em>先聊 10 分钟。</em></h2><p>不需要准备需求文档，也不需要懂技术。告诉我你是谁、想解决什么问题、谁会使用，我们一起拆出最小可行版本。</p></div><div class="contact-actions"><div class="contact-qr"><img src="assets/wechat-qr.png" alt="微信二维码"><div><strong>anyijuneasy</strong><small>微信号：anyijuneasy<br>备注：网站咨询 / AI工具 / 部署上线</small></div></div><p>预算还没确定也可以聊，可以先把问题说清楚。</p></div></div></section></main><footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">安</span><span>逸君</span></a><span>© 2026 AN YIJUN</span></div></footer></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="了解安逸君的开发背景、AI 与全栈转型、产品理念，以及为什么选择成为长期技术伙伴。" />
+  <title>关于安逸君｜从前端工程师到独立开发者</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --paper: #fbf8f1;
+      --ink: #1d211d;
+      --muted: #6f746d;
+      --line: rgba(29,33,29,.12);
+      --olive: #6e7b53;
+      --olive-dark: #465039;
+      --gold: #c4a45b;
+      --shadow: 0 20px 60px rgba(51,49,40,.10);
+      --radius: 28px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(196,164,91,.16), transparent 28%),
+        radial-gradient(circle at 88% 16%, rgba(110,123,83,.13), transparent 30%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+      letter-spacing: .01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(245,241,232,.78);
+      border-bottom: 1px solid rgba(29,33,29,.08);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 750;
+      letter-spacing: .02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      box-shadow: 0 8px 18px rgba(29,33,29,.16);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 10px; }
+    .nav-link {
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nav-link:hover { color: var(--ink); background: rgba(255,255,255,.55); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 14px 30px rgba(29,33,29,.16); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.45); }
+    .btn-secondary:hover { background: rgba(255,255,255,.8); }
+
+    .hero {
+      padding: 108px 0 74px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.16fr .84fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.52);
+      border-radius: 999px;
+      color: var(--olive-dark);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--olive); box-shadow: 0 0 0 5px rgba(110,123,83,.10); }
+
+    h1 {
+      margin: 24px 0 24px;
+      font-size: clamp(46px, 7vw, 88px);
+      line-height: .98;
+      letter-spacing: -.05em;
+      max-width: 8.6em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      max-width: 740px;
+      font-size: clamp(18px, 2.1vw, 24px);
+      color: #4d524b;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+
+    .quote-card {
+      position: relative;
+      padding: 36px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.76), rgba(255,255,255,.44));
+      border: 1px solid rgba(255,255,255,.76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(196,164,91,.12);
+      top: -90px;
+      right: -75px;
+    }
+
+    .quote-kicker { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .18em; }
+    .quote-card blockquote {
+      position: relative;
+      margin: 22px 0 0;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.45;
+      letter-spacing: -.02em;
+      font-weight: 760;
+    }
+
+    .quote-card blockquote strong { color: var(--olive-dark); }
+
+    .micro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .micro {
+      padding: 17px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.38);
+    }
+    .micro b { display: block; font-size: 15px; }
+    .micro span { display: block; margin-top: 4px; font-size: 12px; color: var(--muted); }
+
+    section { padding: 74px 0; }
+    .section-head { display: grid; grid-template-columns: .68fr 1.32fr; gap: 56px; margin-bottom: 40px; }
+    .section-label { font-size: 13px; text-transform: uppercase; letter-spacing: .18em; color: var(--olive-dark); font-weight: 800; }
+    .section-title { margin: 0; font-size: clamp(34px, 4.2vw, 58px); line-height: 1.12; letter-spacing: -.035em; }
+    .section-copy { color: var(--muted); font-size: 18px; max-width: 760px; }
+
+    .story-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      padding: 44px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.46);
+      border: 1px solid rgba(255,255,255,.72);
+      box-shadow: var(--shadow);
+    }
+
+    .story-side {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+    }
+
+    .story-num {
+      font-size: 72px;
+      line-height: 1;
+      letter-spacing: -.05em;
+      color: rgba(29,33,29,.11);
+      font-weight: 850;
+    }
+
+    .story-side h3 { margin: 16px 0 8px; font-size: 24px; }
+    .story-side p { margin: 0; color: var(--muted); }
+
+    .story-body p { margin: 0 0 22px; font-size: 18px; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body .pull {
+      margin: 34px 0;
+      padding: 24px 26px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.46);
+      border-radius: 0 18px 18px 0;
+      font-weight: 750;
+      font-size: 21px;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .value-card {
+      min-height: 250px;
+      padding: 28px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.34);
+    }
+
+    .value-index { font-size: 12px; color: var(--muted); letter-spacing: .14em; }
+    .value-card h3 { margin: 52px 0 14px; font-size: 25px; }
+    .value-card p { margin: 0; color: var(--muted); }
+
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 26px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-row .time { color: var(--olive-dark); font-weight: 750; }
+    .timeline-row h3 { margin: 0 0 8px; font-size: 22px; }
+    .timeline-row p { margin: 0; color: var(--muted); }
+
+    .interest-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.38);
+      color: #4f554d;
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    .cta {
+      margin: 70px auto 42px;
+      padding: 50px;
+      border-radius: 34px;
+      background: #20251f;
+      color: white;
+      box-shadow: 0 28px 80px rgba(29,33,29,.18);
+      overflow: hidden;
+      position: relative;
+    }
+    .cta::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      right: -110px;
+      top: -150px;
+      background: rgba(196,164,91,.18);
+    }
+    .cta-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: end; position: relative; z-index: 1; }
+    .cta h2 { margin: 0 0 16px; font-size: clamp(34px, 4.5vw, 58px); line-height: 1.12; letter-spacing: -.04em; max-width: 9em; }
+    .cta p { margin: 0; color: rgba(255,255,255,.68); max-width: 680px; font-size: 18px; }
+    .cta-actions { display: flex; flex-direction: column; gap: 14px; justify-content: flex-end; align-items: flex-end; }
+    .cta .btn-primary { background: #fff; color: #1f251f; }
+    .cta .btn-secondary { border-color: rgba(255,255,255,.18); color: #fff; background: rgba(255,255,255,.06); }
+
+
+    .contact-panel {
+      width: min(100%, 360px);
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(10px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .contact-kicker { color: rgba(255,255,255,.56); font-size: 12px; text-transform: uppercase; letter-spacing: .16em; }
+    .contact-title { margin: 9px 0 6px; font-size: 24px; font-weight: 850; letter-spacing: -.02em; }
+    .contact-desc { margin: 0 0 16px !important; color: rgba(255,255,255,.68) !important; font-size: 14px !important; line-height: 1.65; }
+    .contact-benefits { display: grid; gap: 8px; margin: 0 0 18px; }
+    .contact-benefit { display: flex; align-items: center; gap: 9px; font-size: 13px; color: rgba(255,255,255,.78); }
+    .contact-check { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; flex: 0 0 auto; background: rgba(196,164,91,.18); color: #f1d98c; font-size: 11px; font-weight: 900; }
+    .wechat-box { display:grid; grid-template-columns: 112px 1fr; gap:14px; align-items:center; padding: 14px; border-radius:20px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.13); }
+    .wechat-qr { width: 112px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; background:#fff; }
+    .wechat-meta { min-width: 0; }
+    .wechat-label { color: rgba(255,255,255,.56); font-size: 12px; }
+    .wechat-id { margin: 3px 0 8px; font-size: 17px; font-weight: 850; word-break: break-all; }
+    .wechat-note { color: rgba(255,255,255,.64); font-size: 12px; line-height:1.6; }
+    .contact-action-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .contact-action-row .btn { flex: 1 1 auto; min-width: 132px; }
+    .contact-proof { margin-top: 12px; color: rgba(255,255,255,.48); font-size: 12px; line-height:1.6; }
+    .contact-copy { max-width: 620px; }
+    .contact-copy .micro-points { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .contact-copy .micro-point { padding:7px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.05); color:rgba(255,255,255,.68); font-size:12px; }
+
+    footer { padding: 34px 0 52px; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 24px; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-link { display: none; }
+      .hero { padding-top: 76px; }
+      .hero-grid, .section-head, .story-card, .cta-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 34px; }
+      .section-head { gap: 18px; }
+      .story-card { padding: 30px; gap: 28px; }
+      .story-side { position: static; }
+      .values { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 1fr; gap: 8px; }
+      .cta-actions { justify-content: flex-start; align-items: flex-start; }
+      .action-row { justify-content: flex-start; }
+    }
+
+    @media (max-width: 620px) {
+      .contact-panel { width: 100%; padding: 18px; }
+      .wechat-box { grid-template-columns: 96px 1fr; }
+      .wechat-qr { width: 96px; }
+      .contact-action-row .btn { width:100%; }
+      .wrap { width: min(calc(100% - 24px), var(--max)); }
+      .nav-inner { min-height: 64px; }
+      .brand span:last-child { display: none; }
+      h1 { font-size: 50px; }
+      .hero { padding-top: 58px; }
+      .quote-card, .story-card, .cta { border-radius: 24px; }
+      .quote-card { padding: 27px; }
+      .micro-grid { grid-template-columns: 1fr; }
+      section { padding: 54px 0; }
+      .story-body p, .section-copy, .cta p { font-size: 16px; }
+      .cta { padding: 34px 28px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="安逸君" />
+  <meta property="og:title" content="关于安逸君｜从前端工程师到独立开发者" />
+  <meta property="og:description" content="了解安逸君的开发背景、AI 与全栈转型、产品理念，以及为什么选择成为长期技术伙伴。" />
+  <meta name="twitter:card" content="summary" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="返回首页">
+        <span class="brand-mark">安</span>
+        <span>安逸君 · Independent Developer</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a class="nav-link" href="index.html">首页</a>
+        <a class="nav-link" href="about.html" aria-current="page">关于我</a>
+        <a class="nav-link" href="services.html">服务与价格</a>
+        <a class="btn btn-primary" href="#contact">联系我 →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Web · AI · 产品落地</div>
+          <h1>把模糊的想法，做成真正能用的东西。</h1>
+          <p class="hero-lead">你好，我是安逸君。前端开发出身，现在更愿意把自己称为独立开发者：懂产品、懂开发、懂 AI，也愿意陪一个想法走到真正上线。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#story">了解我的故事</a>
+            <a class="btn btn-secondary" href="services.html">我能为你做什么</a>
+          </div>
+        </div>
+
+        <aside class="quote-card reveal" aria-label="个人定位摘要">
+          <div class="quote-kicker">What I care about</div>
+          <blockquote>我真正感兴趣的，不只是把代码写出来，而是<strong>解决一个完整的问题。</strong></blockquote>
+          <div class="micro-grid">
+            <div class="micro"><b>技术背景</b><span>Web 前端 → 全栈 / AI</span></div>
+            <div class="micro"><b>工作偏好</b><span>简单、克制、可维护</span></div>
+            <div class="micro"><b>交付目标</b><span>从想法到真正上线</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">01 / My story</div></div>
+          <div>
+            <h2 class="section-title">从前端工程师，到独立解决问题的人。</h2>
+            <p class="section-copy">我不太想把自己包装成“会很多技术的人”。比起技术名词，我更在意一个人带着模糊需求来到我面前之后，我能不能帮他把问题想清楚，并做出真正能落地的东西。</p>
+          </div>
+        </div>
+
+        <article class="story-card reveal">
+          <div class="story-side">
+            <div class="story-num">01</div>
+            <h3>我的起点</h3>
+            <p>从写页面、做交互，到处理接口、部署和线上问题。</p>
+          </div>
+          <div class="story-body">
+            <p>我的职业起点是前端开发。过去几年，我长期和网站、交互、接口、服务器、部署这些事情打交道。</p>
+            <p>做得越久，我越发现自己真正感兴趣的并不只是“把代码写出来”。我更喜欢追问：这个需求真的需要这样做吗？应该做网站、小程序，还是一个轻量工具？早期哪些功能值得投入？服务器怎么买才不浪费？</p>
+            <div class="pull">真正吸引我的，是把技术放回到问题本身：什么值得做，什么可以不做，怎样用更简单的方式得到足够好的结果。</div>
+            <p>随着 AI 编程工具越来越成熟，我的工作方式也发生了变化。过去需要大量时间完成的重复编码，现在越来越多可以交给工具。我开始把更多时间放在理解需求、选择方案、设计产品、控制成本和解决上线问题上。</p>
+            <p>所以现在的我，更愿意把自己定义成一个：懂产品、懂开发、懂 AI，也愿意陪一个想法真正落地的人。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="values">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">02 / Principles</div></div>
+          <div>
+            <h2 class="section-title">我相信，好的技术应该克制。</h2>
+            <p class="section-copy">我一直喜欢研究一件事：有没有更低成本、更简单，但效果同样足够好的解决方法？这种习惯不仅影响我的生活，也影响我做产品和技术方案的方式。</p>
+          </div>
+        </div>
+
+        <div class="values">
+          <article class="value-card reveal">
+            <div class="value-index">01 / SIMPLE</div>
+            <h3>简单优先</h3>
+            <p>能用轻量方案稳定运行，就不为了“看起来专业”去堆复杂架构。复杂不是能力，恰到好处才是。</p>
+          </article>
+          <article class="value-card reveal">
+            <div class="value-index">02 / COST</div>
+            <h3>成本合理</h3>
+            <p>早期产品先验证需求，而不是先买昂贵服务器。把钱花在真正影响结果的地方。</p>
+          </article>
+          <article class="value-card reveal">
+            <div class="value-index">03 / USEFUL</div>
+            <h3>真正可用</h3>
+            <p>我更关心它有没有解决问题、是不是容易维护、能不能长期运行，而不是功能列表有多漂亮。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="now">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">03 / Now</div></div>
+          <div>
+            <h2 class="section-title">我正在建立一种更自主的工作方式。</h2>
+            <p class="section-copy">相比只成为一个更资深的程序员，我更想直接面对真实需求，自己判断产品应该怎么做，用 AI 提高效率，并把经验逐渐变成可以长期提供价值的服务。</p>
+          </div>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-row">
+            <div class="time">过去</div>
+            <div><h3>Web 前端开发</h3><p>网站、交互、接口协作、页面性能、项目交付，建立扎实的工程基础。</p></div>
+          </div>
+          <div class="timeline-row">
+            <div class="time">现在</div>
+            <div><h3>AI × 全栈 × 产品落地</h3><p>把开发、AI、部署、服务器和业务需求串起来，帮助个人和小团队完成从想法到上线的全过程。</p></div>
+          </div>
+          <div class="timeline-row">
+            <div class="time">正在走向</div>
+            <div><h3>独立开发者 / 长期技术伙伴</h3><p>不只完成一次性交付，而是建立可复用、可维护、能持续产生价值的数字产品与服务。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">04 / Beyond code</div></div>
+          <div>
+            <h2 class="section-title">我感兴趣的不只有代码。</h2>
+            <p class="section-copy">我喜欢研究人与工具之间的关系，也关注怎样用有限的资源获得更好的工作与生活体验。这些兴趣，也慢慢塑造了我做产品的方式。</p>
+          </div>
+        </div>
+        <div class="interest-cloud reveal">
+          <span class="tag">AI 与未来工作方式</span>
+          <span class="tag">产品与决策</span>
+          <span class="tag">低成本最优解</span>
+          <span class="tag">专注力</span>
+          <span class="tag">学习与记忆</span>
+          <span class="tag">个人成长</span>
+          <span class="tag">独立开发</span>
+          <span class="tag">数字产品</span>
+          <span class="tag">长期主义</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="cta reveal">
+          <div class="cta-grid">
+            <div class="contact-copy">
+              <div class="section-label" style="color:#d5bd7a; margin-bottom:16px;">LET'S TALK</div>
+              <h2>有想法，不确定怎么做？<br>先聊 10 分钟。</h2>
+              <p>你不需要准备完整需求文档，也不用先搞懂技术。把你现在的想法、卡点和预算范围告诉我，我会先帮你判断：值不值得做、适合怎么做、下一步从哪里开始。</p>
+              <div class="micro-points">
+                <span class="micro-point">先判断方案，不急着成交</span>
+                <span class="micro-point">复杂问题尽量说人话</span>
+                <span class="micro-point">优先考虑成本与可维护性</span>
+              </div>
+            </div>
+            <div class="cta-actions">
+              <div class="contact-panel">
+                <div class="contact-kicker">微信咨询</div>
+                <div class="contact-title">直接加我，说明你想做什么</div>
+                <p class="contact-desc">建议备注你的需求，我可以更快进入问题本身。</p>
+                <div class="contact-benefits">
+                  <div class="contact-benefit"><span class="contact-check">✓</span><span>网站 / 官网 / 个人品牌页</span></div>
+                  <div class="contact-benefit"><span class="contact-check">✓</span><span>AI 工具 / Web 应用开发</span></div>
+                  <div class="contact-benefit"><span class="contact-check">✓</span><span>部署上线 / 技术救援 / 长期维护</span></div>
+                </div>
+                <div class="wechat-box">
+                  <img class="wechat-qr" src="assets/wechat-qr.png" alt="安逸君微信二维码" />
+                  <div class="wechat-meta">
+                    <div class="wechat-label">微信号</div>
+                    <div class="wechat-id">anyijuneasy</div>
+                    <div class="wechat-note">添加时建议备注：<br>“网站咨询 / AI工具 / 部署上线”</div>
+                  </div>
+                </div>
+                <div class="contact-action-row">
+                  <button class="btn btn-primary" type="button" data-copy="anyijuneasy">复制微信号</button>
+                  <a class="btn btn-secondary" href="services.html">先看服务与价格</a>
+                </div>
+                <div class="contact-proof">如果暂时还没想清楚需求，也可以直接发一句：“我有个想法，帮我判断怎么做。”</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© 2026 安逸君 · Independent Developer</div>
+      <div>Build simply. Ship thoughtfully.</div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(text);
+          const original = btn.textContent;
+          btn.textContent = '已复制：' + text;
+          setTimeout(() => btn.textContent = original, 1800);
+        } catch (e) {
+          const original = btn.textContent;
+          btn.textContent = '请手动复制：' + text;
+          setTimeout(() => btn.textContent = original, 2200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

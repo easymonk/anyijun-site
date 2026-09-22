@@ -1,1 +1,6 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="6" fill="#C9F66D"/><path d="M7 7h10v2H9v2h7v2H9v4H7V7Z" fill="#16241F"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="18" fill="#20251f"/>
+  <text x="32" y="43" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif"
+        font-size="35" font-weight="700" fill="#fff">安</text>
+</svg>

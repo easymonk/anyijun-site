@@ -1,1 +1,500 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>服务与价格｜安逸君</title><meta name="description" content="安逸君提供 AI 建站、网站上线托管、AI 工具协助等服务，按实际需求评估方案。"><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/style.css"></head><body><header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">安</span><span>逸君</span></a><nav class="desktop-nav"><a href="index.html">首页</a><a href="about.html">关于我</a><a href="#contact">联系我</a><a class="nav-cta" href="#contact">开始咨询 ↗</a></nav><details class="mobile-menu"><summary>☰</summary><nav><a href="index.html">首页</a><a href="about.html">关于我</a><a href="#contact">联系我</a></nav></details></div></header><main><section class="page-hero"><div class="container"><p class="eyebrow">SERVICES / 服务与价格</p><h1>把问题说清楚，<br><em>把事情做起来。</em></h1><p class="hero-lede">不同项目的目标、复杂度和预算不同，我会先帮你判断最合适的方案，再确定工作范围和报价。</p></div></section><section class="section"><div class="container content-narrow"><div class="pricing-list"><article class="price-row"><div><h3>AI 建站</h3><p>个人品牌与企业官网、课程与活动落地页、AI 工具与内部工作台。</p></div><strong class="price">按需评估</strong></article><article class="price-row"><div><h3>上线与托管</h3><p>域名、DNS、HTTPS、部署、基础安全、故障处理和持续维护。</p></div><strong class="price">按需评估</strong></article><article class="price-row"><div><h3>AI 工具协助</h3><p>ChatGPT / Codex / Claude，API、模型、开发环境和工作流梳理。</p></div><strong class="price">按需评估</strong></article></div><div style="height:62px"></div><div class="section-heading compact"><p class="eyebrow">FAQ / 常见问题</p><h2>先从一个<br><em>小版本开始。</em></h2></div><div class="faq"><details open><summary>我没有完整需求，可以咨询吗？</summary><p>可以。你只需要告诉我你是谁、想解决什么问题、谁会使用，剩下的我们一起梳理。</p></details><details><summary>预算还没确定怎么办？</summary><p>可以先拆出最小可用版本，优先解决最重要的问题，再根据真实反馈继续迭代。</p></details><details><summary>做完之后能帮忙上线吗？</summary><p>可以。从域名、DNS 到 Cloudflare Pages 等静态托管方式，都可以一起完成配置和上线。</p></details></div></div></section><section class="section contact-section" id="contact"><div class="container contact-card"><div><p class="eyebrow">START HERE / 开始咨询</p><h2>发我 3 个信息<br><em>就够了。</em></h2><p>你是谁、想解决什么问题、谁会使用。预算没确定也没关系，可以先把问题讲清楚。</p></div><div class="contact-actions"><div class="contact-qr"><img src="assets/wechat-qr.png" alt="微信二维码"><div><strong>anyijuneasy</strong><small>微信号：anyijuneasy<br>备注：网站咨询 / AI工具 / 部署上线</small></div></div><p>先聊聊，再决定要不要开始。</p></div></div></section></main><footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">安</span><span>逸君</span></a><span>© 2026 AN YIJUN</span></div></footer></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="网站搭建、Web 应用与 AI 工具开发、部署上线、技术救援和长期维护。查看安逸君的服务内容、参考价格与合作流程。" />
+  <title>服务与价格｜安逸君 · 独立开发者</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --paper: #fbf8f1;
+      --ink: #1d211d;
+      --muted: #6f746d;
+      --line: rgba(29,33,29,.12);
+      --olive: #6e7b53;
+      --olive-dark: #465039;
+      --gold: #c4a45b;
+      --shadow: 0 20px 60px rgba(51,49,40,.10);
+      --radius: 28px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 9% 0%, rgba(196,164,91,.16), transparent 27%),
+        radial-gradient(circle at 92% 12%, rgba(110,123,83,.13), transparent 30%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+      letter-spacing: .01em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(245,241,232,.80);
+      border-bottom: 1px solid rgba(29,33,29,.08);
+    }
+    .nav-inner {
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 760; }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+      background: var(--ink); color: white; font-size: 14px; box-shadow: 0 8px 18px rgba(29,33,29,.16);
+    }
+    .nav-links { display: flex; align-items: center; gap: 10px; }
+    .nav-link { padding: 9px 12px; border-radius: 999px; font-size: 14px; color: var(--muted); }
+    .nav-link:hover { color: var(--ink); background: rgba(255,255,255,.55); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 48px; padding: 0 18px; border-radius: 999px; font-weight: 720; transition: .25s ease;
+    }
+    .btn-primary { background: var(--ink); color: #fff; box-shadow: 0 14px 30px rgba(29,33,29,.16); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.48); }
+    .btn-secondary:hover { background: rgba(255,255,255,.82); }
+
+    .hero { padding: 104px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 58px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px;
+      border: 1px solid var(--line); background: rgba(255,255,255,.52); border-radius: 999px;
+      color: var(--olive-dark); font-weight: 720; font-size: 13px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--olive); box-shadow: 0 0 0 5px rgba(110,123,83,.10); }
+    h1 { margin: 24px 0 22px; font-size: clamp(46px, 7vw, 84px); line-height: 1; letter-spacing: -.05em; max-width: 9em; }
+    .hero-lead { margin: 0; max-width: 760px; font-size: clamp(18px, 2vw, 23px); color: #4d524b; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+    .problem-card {
+      position: relative; padding: 34px; border-radius: 32px;
+      background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(255,255,255,.43));
+      border: 1px solid rgba(255,255,255,.76); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .problem-card:before {
+      content:""; position:absolute; width:220px; height:220px; border-radius:50%;
+      right:-90px; top:-100px; background:rgba(196,164,91,.13);
+    }
+    .problem-card h2 { position: relative; margin: 0 0 16px; font-size: 28px; line-height: 1.3; }
+    .problem-list { position: relative; display: grid; gap: 11px; }
+    .problem-item { padding: 12px 14px; border-radius: 15px; background: rgba(255,255,255,.52); border: 1px solid var(--line); color: #51564f; font-size: 14px; }
+
+    section { padding: 74px 0; }
+    .section-head { display: grid; grid-template-columns: .68fr 1.32fr; gap: 56px; margin-bottom: 40px; }
+    .section-label { font-size: 13px; text-transform: uppercase; letter-spacing: .18em; color: var(--olive-dark); font-weight: 800; }
+    .section-title { margin: 0; font-size: clamp(34px, 4.2vw, 58px); line-height: 1.12; letter-spacing: -.035em; }
+    .section-copy { color: var(--muted); font-size: 18px; max-width: 780px; }
+
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .service-card {
+      min-height: 390px; padding: 32px; border-radius: 26px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.38); display: flex; flex-direction: column;
+    }
+    .service-top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+    .service-num { color: var(--olive-dark); font-size: 13px; letter-spacing: .14em; font-weight: 800; }
+    .service-price { font-size: 13px; font-weight: 760; padding: 7px 10px; border-radius: 999px; background: rgba(110,123,83,.10); color: var(--olive-dark); white-space: nowrap; }
+    .service-card h3 { margin: 42px 0 12px; font-size: 29px; line-height: 1.25; letter-spacing: -.02em; }
+    .service-card > p { margin: 0; color: var(--muted); }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 28px; }
+    .tag { padding: 7px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; color: #555b53; background: rgba(255,255,255,.43); }
+
+    .extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .extra-card { padding: 26px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.32); }
+    .extra-card h3 { margin: 28px 0 10px; font-size: 22px; }
+    .extra-card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .pricing-shell {
+      padding: 42px; border-radius: 32px; background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.82); box-shadow: var(--shadow);
+    }
+    .pricing-note { margin: 0 0 30px; color: var(--muted); max-width: 820px; font-size: 17px; }
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th, .price-table td { text-align: left; padding: 20px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .price-table th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+    .price-table td:first-child { font-weight: 750; }
+    .price-table td:last-child { font-weight: 800; white-space: nowrap; color: var(--olive-dark); }
+    .price-hint { display:block; margin-top:5px; color:var(--muted); font-size:13px; font-weight:500; }
+
+    .price-levels { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:28px; }
+    .level { padding:24px; border-radius:22px; border:1px solid var(--line); background:rgba(255,255,255,.38); }
+    .level small { color:var(--olive-dark); text-transform:uppercase; letter-spacing:.12em; font-weight:800; }
+    .level h3 { margin:20px 0 8px; font-size:24px; }
+    .level p { margin:0; color:var(--muted); font-size:14px; }
+
+    .process { border-top: 1px solid var(--line); }
+    .process-row { display:grid; grid-template-columns: 110px 1fr 180px; gap:26px; padding:27px 0; border-bottom:1px solid var(--line); align-items:start; }
+    .process-num { color:var(--olive-dark); font-weight:800; }
+    .process-row h3 { margin:0 0 7px; font-size:21px; }
+    .process-row p { margin:0; color:var(--muted); }
+    .process-note { color:var(--muted); font-size:13px; text-align:right; }
+
+    .faq { display:grid; gap:12px; }
+    details { border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.35); padding:0 20px; }
+    summary { cursor:pointer; list-style:none; padding:19px 0; font-weight:720; }
+    summary::-webkit-details-marker { display:none; }
+    details p { margin:0; padding:0 0 20px; color:var(--muted); }
+
+    .cta {
+      margin: 70px auto 42px; padding: 50px; border-radius: 34px;
+      background: #20251f; color: white; box-shadow: 0 28px 80px rgba(29,33,29,.18);
+      overflow: hidden; position: relative;
+    }
+    .cta:after { content:""; position:absolute; width:320px; height:320px; border-radius:50%; right:-110px; top:-150px; background:rgba(196,164,91,.18); }
+    .cta-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:end; position:relative; z-index:1; }
+    .cta h2 { margin:0 0 16px; font-size:clamp(34px,4.5vw,58px); line-height:1.12; letter-spacing:-.04em; max-width:10em; }
+    .cta p { margin:0; color:rgba(255,255,255,.68); max-width:680px; font-size:18px; }
+    .cta-actions { display:flex; flex-direction:column; gap:14px; justify-content:flex-end; align-items:flex-end; }
+    .cta .btn-primary { background:#fff; color:#1f251f; }
+    .cta .btn-secondary { border-color:rgba(255,255,255,.18); color:#fff; background:rgba(255,255,255,.06); }
+
+
+    .contact-panel {
+      width: min(100%, 360px);
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(10px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .contact-kicker { color: rgba(255,255,255,.56); font-size: 12px; text-transform: uppercase; letter-spacing: .16em; }
+    .contact-title { margin: 9px 0 6px; font-size: 24px; font-weight: 850; letter-spacing: -.02em; }
+    .contact-desc { margin: 0 0 16px !important; color: rgba(255,255,255,.68) !important; font-size: 14px !important; line-height: 1.65; }
+    .contact-benefits { display: grid; gap: 8px; margin: 0 0 18px; }
+    .contact-benefit { display: flex; align-items: center; gap: 9px; font-size: 13px; color: rgba(255,255,255,.78); }
+    .contact-check { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; flex: 0 0 auto; background: rgba(196,164,91,.18); color: #f1d98c; font-size: 11px; font-weight: 900; }
+    .wechat-box { display:grid; grid-template-columns: 112px 1fr; gap:14px; align-items:center; padding: 14px; border-radius:20px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.13); }
+    .wechat-qr { width: 112px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; background:#fff; }
+    .wechat-meta { min-width: 0; }
+    .wechat-label { color: rgba(255,255,255,.56); font-size: 12px; }
+    .wechat-id { margin: 3px 0 8px; font-size: 17px; font-weight: 850; word-break: break-all; }
+    .wechat-note { color: rgba(255,255,255,.64); font-size: 12px; line-height:1.6; }
+    .contact-action-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .contact-action-row .btn { flex: 1 1 auto; min-width: 132px; }
+    .contact-proof { margin-top: 12px; color: rgba(255,255,255,.48); font-size: 12px; line-height:1.6; }
+    .contact-copy { max-width: 620px; }
+    .contact-copy .micro-points { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .contact-copy .micro-point { padding:7px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.05); color:rgba(255,255,255,.68); font-size:12px; }
+
+    footer { padding:34px 0 52px; color:var(--muted); font-size:13px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; border-top:1px solid var(--line); padding-top:24px; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity:1; transform:translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-link { display:none; }
+      .hero { padding-top:76px; }
+      .hero-grid, .section-head, .cta-grid { grid-template-columns:1fr; }
+      .hero-grid { gap:34px; }
+      .section-head { gap:18px; }
+      .service-grid { grid-template-columns:1fr; }
+      .extras, .price-levels { grid-template-columns:1fr; }
+      .process-row { grid-template-columns:70px 1fr; }
+      .process-note { grid-column:2; text-align:left; }
+      .cta-actions { justify-content:flex-start; align-items:flex-start; }
+      .action-row { justify-content:flex-start; }
+    }
+    @media (max-width: 620px) {
+      .contact-panel { width: 100%; padding: 18px; }
+      .wechat-box { grid-template-columns: 96px 1fr; }
+      .wechat-qr { width: 96px; }
+      .contact-action-row .btn { width:100%; }
+      .wrap { width:min(calc(100% - 24px), var(--max)); }
+      .nav-inner { min-height:64px; }
+      .brand span:last-child { display:none; }
+      h1 { font-size:48px; }
+      .hero { padding-top:58px; }
+      section { padding:54px 0; }
+      .problem-card, .pricing-shell, .cta { border-radius:24px; }
+      .problem-card, .pricing-shell { padding:26px; }
+      .service-card { min-height:auto; }
+      .section-copy, .cta p { font-size:16px; }
+      .price-table thead { display:none; }
+      .price-table, .price-table tbody, .price-table tr, .price-table td { display:block; width:100%; }
+      .price-table tr { padding:15px 0; border-bottom:1px solid var(--line); }
+      .price-table td { border:0; padding:4px 0; }
+      .price-table td:last-child { margin-top:7px; }
+      .cta { padding:34px 28px; }
+      .footer-inner { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior:auto !important; }
+      .reveal { opacity:1; transform:none; transition:none; }
+    }
+  </style>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="安逸君" />
+  <meta property="og:title" content="服务与价格｜安逸君 · 独立开发者" />
+  <meta property="og:description" content="网站搭建、Web 应用与 AI 工具开发、部署上线、技术救援和长期维护。查看安逸君的服务内容、参考价格与合作流程。" />
+  <meta name="twitter:card" content="summary" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="返回首页">
+        <span class="brand-mark">安</span>
+        <span>安逸君 · Independent Developer</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a class="nav-link" href="index.html">首页</a>
+        <a class="nav-link" href="about.html">关于我</a>
+        <a class="nav-link" href="services.html" aria-current="page">服务与价格</a>
+        <a class="btn btn-primary" href="#contact">聊聊你的需求 →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> 网站 · Web 应用 · AI · 部署维护</div>
+          <h1>把技术问题，变成能真正落地的结果。</h1>
+          <p class="hero-lead">你不需要先懂前端、后端、服务器或者 AI。告诉我你想解决什么问题，我来帮你判断应该怎么做、做到什么程度，以及怎样用更合理的成本真正上线。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">看看我能帮你什么</a>
+            <a class="btn btn-secondary" href="#pricing">先看价格</a>
+          </div>
+        </div>
+
+        <aside class="problem-card reveal">
+          <h2>你可能正卡在这些地方：</h2>
+          <div class="problem-list">
+            <div class="problem-item">“我有一个想法，但不知道做成什么最合适。”</div>
+            <div class="problem-item">“AI 已经生成代码了，可我不知道怎么上线。”</div>
+            <div class="problem-item">“想做网站，但域名、服务器、备案太复杂。”</div>
+            <div class="problem-item">“没有技术团队，希望有人长期帮我维护。”</div>
+            <div class="problem-item">“想把 AI 接进业务，但不知道值不值得做。”</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">01 / Core services</div></div>
+          <div>
+            <h2 class="section-title">按你遇到的问题，选择服务。</h2>
+            <p class="section-copy">我不希望你先研究技术名词。你只需要判断自己现在最接近哪一种情况：需要一个网站、有一个产品想法、代码不会上线，或者需要长期有人负责技术。</p>
+          </div>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-top"><div class="service-num">01 / WEBSITE</div><div class="service-price">¥999 起</div></div>
+            <h3>网站 / 官网搭建</h3>
+            <p>适合个人 IP、老师、自由职业者、工作室和小企业。帮你从页面结构、视觉呈现，到域名、部署和上线一次完成。</p>
+            <div class="service-tags"><span class="tag">个人官网</span><span class="tag">课程页</span><span class="tag">品牌官网</span><span class="tag">落地页</span><span class="tag">移动端适配</span><span class="tag">基础 SEO</span></div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top"><div class="service-num">02 / PRODUCT</div><div class="service-price">¥5,000 起</div></div>
+            <h3>Web 应用 / AI 工具开发</h3>
+            <p>适合有明确功能需求的产品。可以包含用户登录、后台、数据库、文件上传、AI 能力、第三方接口和完整部署。</p>
+            <div class="service-tags"><span class="tag">会员系统</span><span class="tag">后台管理</span><span class="tag">预约 / 报名</span><span class="tag">轻量 SaaS</span><span class="tag">AI 工具</span><span class="tag">API 接入</span></div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top"><div class="service-num">03 / SHIP</div><div class="service-price">¥499 起</div></div>
+            <h3>网站上线 / 部署</h3>
+            <p>代码已经有了，但不知道怎么真正运行？无论来自自己开发、Codex、Claude Code、Cursor 还是开源项目，我都可以帮你把它部署上线。</p>
+            <div class="service-tags"><span class="tag">服务器选型</span><span class="tag">Docker</span><span class="tag">Nginx</span><span class="tag">HTTPS</span><span class="tag">数据库</span><span class="tag">域名解析</span></div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top"><div class="service-num">04 / PARTNER</div><div class="service-price">¥399 / 月起</div></div>
+            <h3>长期技术支持</h3>
+            <p>适合没有技术团队，但已经有线上业务的个人和小团队。我可以成为你的远程技术伙伴，持续处理维护、Bug、升级和线上问题。</p>
+            <div class="service-tags"><span class="tag">网站维护</span><span class="tag">服务器维护</span><span class="tag">Bug 修复</span><span class="tag">功能迭代</span><span class="tag">备份</span><span class="tag">技术咨询</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">02 / Also available</div></div>
+          <div>
+            <h2 class="section-title">还有一些更轻、更具体的需求。</h2>
+            <p class="section-copy">不一定每次都要做完整项目。有时候，你只是需要有人帮你把一个卡住的问题解决掉。</p>
+          </div>
+        </div>
+        <div class="extras">
+          <article class="extra-card reveal"><div class="service-num">AI</div><h3>AI 能力接入</h3><p>AI 客服、知识库、内容生成、工作流、多模型 API 接入。重点不是“为了 AI 而 AI”，而是看它能不能真正创造价值。</p></article>
+          <article class="extra-card reveal"><div class="service-num">FIX</div><h3>技术救援</h3><p>网站打不开、部署失败、接口报错、证书过期、依赖冲突、AI 项目跑不起来，可以直接做问题诊断与远程处理。</p></article>
+          <article class="extra-card reveal"><div class="service-num">SETUP</div><h3>AI 工具配置与培训</h3><p>ChatGPT、Codex、Claude、Cursor、API、开发环境配置，以及适合个人或团队的基础 AI 工作流。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">03 / Pricing</div></div>
+          <div>
+            <h2 class="section-title">先知道大概多少钱，再决定要不要聊。</h2>
+            <p class="section-copy">我不希望聊了半天，最后才发现预算完全不匹配。下面是常见项目的价格参考；复杂项目会在需求确认后给出明确报价。</p>
+          </div>
+        </div>
+
+        <div class="pricing-shell reveal">
+          <p class="pricing-note">价格会受到页面数量、功能复杂度、第三方接口、是否需要设计、数据迁移和后续维护等因素影响。以下用于帮助你快速判断预算级别，不代表所有项目固定一口价。</p>
+          <table class="price-table" aria-label="服务价格参考">
+            <thead><tr><th>服务</th><th>适合场景</th><th>参考价格</th></tr></thead>
+            <tbody>
+              <tr><td>单页官网<span class="price-hint">展示型 / 落地页</span></td><td>个人 IP、课程、活动、产品介绍</td><td>¥999 起</td></tr>
+              <tr><td>标准官网<span class="price-hint">多页面</span></td><td>个人品牌、工作室、小企业</td><td>¥1,999 起</td></tr>
+              <tr><td>官网 + 基础后台</td><td>需要自己更新内容或管理数据</td><td>¥3,999 起</td></tr>
+              <tr><td>Web 应用开发</td><td>登录、后台、数据库、业务流程</td><td>¥5,000 起</td></tr>
+              <tr><td>AI 应用开发</td><td>模型 API、知识库、工作流、AI 工具</td><td>¥3,000 起</td></tr>
+              <tr><td>网站部署上线</td><td>已有代码，需要服务器 / 域名 / HTTPS</td><td>¥499 起</td></tr>
+              <tr><td>技术问题诊断</td><td>部署、服务器、报错、线上异常</td><td>¥299 起</td></tr>
+              <tr><td>长期技术维护</td><td>没有技术团队，希望持续有人负责</td><td>¥399 / 月起</td></tr>
+            </tbody>
+          </table>
+
+          <div class="price-levels">
+            <div class="level"><small>轻量服务</small><h3>几百元</h3><p>解决一个明确问题：部署、诊断、配置、远程协助。</p></div>
+            <div class="level"><small>项目交付</small><h3>几千元起</h3><p>把网站、Web 应用或 AI 工具从想法做到可用版本。</p></div>
+            <div class="level"><small>长期合作</small><h3>按月服务</h3><p>不需要雇全职程序员，也有人持续维护你的线上业务。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">04 / Process</div></div>
+          <div>
+            <h2 class="section-title">不用先写一份专业需求文档。</h2>
+            <p class="section-copy">你可以从一句很简单的话开始。我会先理解问题，再一起决定应该做什么，而不是先把复杂技术丢给你。</p>
+          </div>
+        </div>
+
+        <div class="process reveal">
+          <div class="process-row"><div class="process-num">01</div><div><h3>告诉我你的需求</h3><p>例如：“我是老师，想做一个课程网站”或者“AI 已经生成代码，但我不会上线”。</p></div><div class="process-note">不需要懂技术</div></div>
+          <div class="process-row"><div class="process-num">02</div><div><h3>一起梳理方案</h3><p>判断哪些功能值得做、哪些可以暂时不做，以及更适合的技术方案和成本。</p></div><div class="process-note">先把问题想清楚</div></div>
+          <div class="process-row"><div class="process-num">03</div><div><h3>确认范围与报价</h3><p>把功能、交付内容、时间、费用和后续维护方式提前说清楚。</p></div><div class="process-note">尽量减少模糊地带</div></div>
+          <div class="process-row"><div class="process-num">04</div><div><h3>开发 / 处理</h3><p>项目过程中可以看到阶段版本，方向不对及时调整，而不是等到最后才发现问题。</p></div><div class="process-note">过程可见</div></div>
+          <div class="process-row"><div class="process-num">05</div><div><h3>真正上线</h3><p>把域名、服务器、部署和基础测试一起处理好，让交付结果真正能被访问和使用。</p></div><div class="process-note">不是只交代码</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="section-label">05 / FAQ</div></div>
+          <div><h2 class="section-title">合作前常见的问题。</h2></div>
+        </div>
+        <div class="faq reveal">
+          <details><summary>我完全不懂技术，也可以找你吗？</summary><p>可以。你只需要把业务目标、使用人群和你现在遇到的问题说清楚，技术方案由我来帮你拆。</p></details>
+          <details><summary>我已经用 AI / Cursor / Codex 把项目写出来了，只需要上线，可以吗？</summary><p>可以。部署上线本身就是独立服务。我会先检查项目能否运行，再处理服务器、环境变量、数据库、域名和 HTTPS 等问题。</p></details>
+          <details><summary>为什么复杂项目只写“起”？</summary><p>因为同样叫“网站”或“AI 工具”，功能差异可能非常大。公开起步价是为了让你快速判断预算范围，具体价格会在确认需求后固定下来。</p></details>
+          <details><summary>服务器和域名费用包含在开发费里吗？</summary><p>默认把第三方资源费用单独列出，这样成本更透明。需要的话，也可以把服务器、域名和代配置一起做成完整套餐。</p></details>
+          <details><summary>项目上线以后还能继续找你吗？</summary><p>可以。可以按单次问题处理，也可以选择按月的长期技术支持，适合不想自己维护服务器和代码的人。</p></details>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="cta reveal">
+          <div class="cta-grid">
+            <div class="contact-copy">
+              <div class="section-label" style="color:#d5bd7a; margin-bottom:16px;">START A PROJECT</div>
+              <h2>先把需求说清楚，<br>再决定要不要做。</h2>
+              <p>如果你已经看过服务和价格，可以直接把需求发给我。我会先帮你判断项目范围、实现方式和大致预算，不合适的方案我也会直接告诉你。</p>
+              <div class="micro-points">
+                <span class="micro-point">需求不完整也能聊</span>
+                <span class="micro-point">先评估，再报价</span>
+                <span class="micro-point">可以从小需求开始</span>
+              </div>
+            </div>
+            <div class="cta-actions">
+              <div class="contact-panel">
+                <div class="contact-kicker">微信咨询</div>
+                <div class="contact-title">发我这 3 个信息就够了</div>
+                <p class="contact-desc">越具体越容易快速判断，不需要写正式需求文档。</p>
+                <div class="contact-benefits">
+                  <div class="contact-benefit"><span class="contact-check">1</span><span>你是谁 / 你的业务是什么</span></div>
+                  <div class="contact-benefit"><span class="contact-check">2</span><span>你现在想解决什么问题</span></div>
+                  <div class="contact-benefit"><span class="contact-check">3</span><span>谁会使用这个网站或产品</span></div>
+                </div>
+                <div class="wechat-box">
+                  <img class="wechat-qr" src="assets/wechat-qr.png" alt="安逸君微信二维码" />
+                  <div class="wechat-meta">
+                    <div class="wechat-label">微信号</div>
+                    <div class="wechat-id">anyijuneasy</div>
+                    <div class="wechat-note">添加时建议备注：<br>“网站咨询 / AI工具 / 部署上线”</div>
+                  </div>
+                </div>
+                <div class="contact-action-row">
+                  <button class="btn btn-primary" type="button" data-copy="anyijuneasy">复制微信号</button>
+                  <a class="btn btn-secondary" href="about.html">先了解我</a>
+                </div>
+                <div class="contact-proof">预算还没确定也没关系。我可以先帮你拆成“现在要做”和“以后再做”。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© 2026 安逸君 · Independent Developer</div>
+      <div>Build simply. Ship thoughtfully.</div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(text);
+          const original = btn.textContent;
+          btn.textContent = '已复制：' + text;
+          setTimeout(() => btn.textContent = original, 1800);
+        } catch (e) {
+          const original = btn.textContent;
+          btn.textContent = '请手动复制：' + text;
+          setTimeout(() => btn.textContent = original, 2200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
