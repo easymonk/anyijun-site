@@ -68,7 +68,7 @@ Bucket ACL 和“阻止公共访问”建议在控制台中显式确认，避免
 
 1. 在 RAM 控制台创建一个只用于 GitHub Actions 的 RAM 用户，不要使用阿里云主账号 AccessKey。
 2. 复制 `deploy/ram-policy.example.json`，将其中两处 `<bucket-name>` 替换为实际 Bucket 名称，并把该自定义策略授予 RAM 用户。该策略只允许列举、上传和删除这一只 Bucket 中的对象，以及更新该 Bucket 的静态网站首页和 404 配置。
-3. 在 GitHub 仓库 `Settings -> Secrets and variables -> Actions` 中添加：
+3. 在工作流指定的 GitHub Environment（当前仓库为 `OSS_ACCESS_KEY_ID`）中添加：
 
    Secrets（凭证）：
 
