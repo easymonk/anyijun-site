@@ -5,6 +5,7 @@
       "Effect": "Allow",
       "Action": [
         "oss:ListObjects",
+        "oss:PutBucketAcl",
         "oss:PutBucketWebsite"
       ],
       "Resource": [
