@@ -1,0 +1,110 @@
+name: Deploy to Alibaba Cloud OSS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "*.html"
+      - "robots.txt"
+      - "assets/**"
+      - ".github/workflows/deploy-oss.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: oss-production
+  cancel-in-progress: true
+
+env:
+  OSSUTIL_VERSION: "2.4.0"
+  OSSUTIL_SHA256: "85edf66b2fb7238f5c7e25cab820cf29312319fe4935b7c86a6b8485eb434f3c"
+
+jobs:
+  deploy:
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare and validate static files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${{ vars.OSS_BUCKET }}"
+          test -n "${{ vars.OSS_REGION }}"
+
+          mkdir -p dist/assets
+          install -m 0644 index.html about.html services.html 404.html robots.txt dist/
+          cp -R assets/. dist/assets/
+
+          test -s dist/index.html
+          test -s dist/404.html
+          test -s dist/assets/favicon.svg
+          test -s dist/assets/wechat-qr.png
+
+      - name: Install ossutil
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="ossutil-${OSSUTIL_VERSION}-linux-amd64.zip"
+          curl --fail --silent --show-error --location \
+            "https://gosspublic.alicdn.com/ossutil/v2/${OSSUTIL_VERSION}/${archive}" \
+            --output "${archive}"
+          echo "${OSSUTIL_SHA256}  ${archive}" | sha256sum --check --strict
+          unzip -q "${archive}"
+          install -m 0755 "ossutil-${OSSUTIL_VERSION}-linux-amd64/ossutil" ./ossutil
+          ./ossutil version
+
+      - name: Deploy to OSS
+        shell: bash
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          OSS_REGION: ${{ vars.OSS_REGION }}
+          OSS_BUCKET: ${{ vars.OSS_BUCKET }}
+        run: |
+          set -euo pipefail
+          test -n "${OSS_ACCESS_KEY_ID}"
+          test -n "${OSS_ACCESS_KEY_SECRET}"
+
+          # Keep the Bucket root identical to dist/. HTML is revalidated on every visit.
+          ./ossutil sync dist/ "oss://${OSS_BUCKET}/" \
+            --delete \
+            --force \
+            --cache-control "no-cache,max-age=0,must-revalidate"
+
+          # These filenames are not content-hashed, so use a bounded one-day cache.
+          ./ossutil cp dist/assets/ "oss://${OSS_BUCKET}/assets/" \
+            --recursive \
+            --force \
+            --cache-control "public,max-age=86400"
+
+          ./ossutil ls "oss://${OSS_BUCKET}/index.html"
+          ./ossutil ls "oss://${OSS_BUCKET}/404.html"
+
+      - name: Verify the public website
+        if: ${{ vars.SITE_URL != '' }}
+        shell: bash
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          set -euo pipefail
+          case "${SITE_URL}" in
+            http://*|https://*) base_url="${SITE_URL%/}" ;;
+            *) base_url="https://${SITE_URL%/}" ;;
+          esac
+          curl --fail --silent --show-error --location \
+            --retry 3 --retry-delay 2 \
+            "${base_url}/" --output /tmp/site-index.html
+          grep -q '<html lang="zh-CN">' /tmp/site-index.html
+
+          status="$(curl --silent --show-error --location \
+            --output /tmp/site-404.html --write-out '%{http_code}' \
+            "${base_url}/__oss_deployment_check_not_found__")"
+          test "${status}" = "404"
+          grep -q '这个页面走丢了' /tmp/site-404.html
