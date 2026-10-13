@@ -25,7 +25,8 @@ jobs:
   deploy:
     if: ${{ vars.DEPLOY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
-    environment: production
+    # Existing GitHub Environment containing the OSS Secrets and Variables.
+    environment: OSS_ACCESS_KEY_ID
 
     steps:
       - name: Check out repository
