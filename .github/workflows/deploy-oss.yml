@@ -23,7 +23,6 @@ env:
 
 jobs:
   deploy:
-    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     # Existing GitHub Environment containing the OSS Secrets and Variables.
     environment: OSS_ACCESS_KEY_ID
