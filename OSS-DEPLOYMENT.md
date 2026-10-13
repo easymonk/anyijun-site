@@ -80,7 +80,6 @@ Bucket ACL 和“阻止公共访问”建议在控制台中显式确认，避免
    - `OSS_BUCKET`：Bucket 名称，不带 `oss://`
    - `OSS_REGION`：例如 `cn-hangzhou`
    - `SITE_URL`：可选，例如 `https://www.example.com`；配置后部署会检查首页和 404。
-   - `DEPLOY_ENABLED`：完成密钥轮换和 Bucket 配置后设为 `true`；未设置时工作流不会部署。
 
 4. 合并 `.github/workflows/deploy-oss.yml` 到 `main`。以后修改站点文件并推送到 `main` 会自动部署，也可以在 Actions 页面手动运行。
 
