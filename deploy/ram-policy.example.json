@@ -4,7 +4,8 @@
     {
       "Effect": "Allow",
       "Action": [
-        "oss:ListObjects"
+        "oss:ListObjects",
+        "oss:PutBucketWebsite"
       ],
       "Resource": [
         "acs:oss:*:*:<bucket-name>"
