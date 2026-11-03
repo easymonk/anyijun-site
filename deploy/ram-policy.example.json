@@ -1,0 +1,25 @@
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "oss:ListObjects",
+        "oss:PutBucketWebsite"
+      ],
+      "Resource": [
+        "acs:oss:*:*:<bucket-name>"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "oss:PutObject",
+        "oss:DeleteObject"
+      ],
+      "Resource": [
+        "acs:oss:*:*:<bucket-name>/*"
+      ]
+    }
+  ]
+}
